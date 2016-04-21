@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-md-3" id="back-btn">
+        <a  href="#/"> Powrót </a>
+    </div>
+    <div class="col-md-6">
+        <article>
+            <header>
+                <h2>{{ post.title }}</h2>
+            </header>
+            <p>{{ post.body }}</p>
+        </article>
+    </div>
+    <div class="col-md-3">
+        <section class="author-details">
+            <header>Post author:</header>
+            <h3 ng-bind="user[post.userId - 1].name"></h3>
+            <a href="mailto://{{ user[post.userId - 1].email }}" ng-bind="user[post.userId - 1].email"></a>
+        </section>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-6">
+        <section>
+            <h4>Comments:</h4>
+        </section>
+        <article class="comments" ng-repeat="comment in comments" data-ng-if="comment.postId == post.id">
+            <header>
+                <h4> {{ comment.name }} </h4>
+                <h6>Posted by: <a href="mailto://{{ comment.email }}">{{ comment.email }}</a></h6>
+            </header>
+            <p class="comment-content">{{ comment.body }}</p>
+        </article>
+        <i class="read-more glyphicon glyphicon-arrow-down"> Read More</i>
+    </div>
+    <div class="col-md-3">
+
+    </div>
+</div>
+
+<script src="js/singlepost-site.js"></script>
